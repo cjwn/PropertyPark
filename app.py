@@ -1,4 +1,4 @@
-from sqlalchemy import func
+from sqlalchemy import func, case
 from datetime import datetime, timedelta
 import csv
 from flask import request
@@ -74,7 +74,6 @@ def register():
         return render_template('register.html', form=form)
 
 
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
@@ -142,6 +141,7 @@ def index():
                            vacant_parking_spaces=vacant_parking_spaces,
                            selected_month=selected_month.strftime('%Y-%m') if selected_month else None)
 
+
 @app.route('/profile', methods=['GET', 'POST'])
 @login_required
 def profile():
@@ -156,13 +156,14 @@ def profile():
         return redirect(url_for('profile'))
     return render_template('profile.html', form=form)
 
+
 @app.route('/manage-users', methods=['GET', 'POST'])
 @login_required
 def manage_users():
     if current_user.role != 'Super Admin':
         flash('You do not have permission to manage users.', 'danger')
         return redirect(url_for('index'))
-    
+
     users = User.query.all()
     return render_template('manage_users.html', users=users)
 
@@ -173,7 +174,7 @@ def edit_user(user_id):
     if current_user.role != 'Super Admin':
         flash('You do not have permission to edit users.', 'danger')
         return redirect(url_for('index'))
-    
+
     user = User.query.get_or_404(user_id)
     form = UserEditForm(obj=user)
     if form.validate_on_submit():
@@ -184,7 +185,6 @@ def edit_user(user_id):
         flash('User has been updated successfully!', 'success')
         return redirect(url_for('manage_users'))
     return render_template('edit_user.html', form=form, user=user)
-
 
 
 @app.route('/add-fee', methods=['GET', 'POST'])
@@ -304,7 +304,6 @@ def view_fees():
     return render_template('view_fees.html', fees=fees, search_term=search_term if 'search_term' in locals() else "")
 
 
-
 @app.route('/download-fee-template')
 @login_required
 def download_fee_template():
@@ -343,9 +342,27 @@ def parking_spaces():
         # 如果不是 POST 请求，默认使用当前月份
         selected_month = datetime.now()
 
+    query = db.session.query(ParkingSpace, Fee.license_plate_number, Fee.amount).outerjoin(Fee, ParkingSpace.space_number == Fee.parking_space_number)
+    print(query.all())
+    query = db.session.query(
+        ParkingSpace,
+        Fee.license_plate_number,
+        Fee.amount,
+        Fee.payment_date,
+        Fee.due_date,
+        func.count(Fee.id).label('paid'),
+        case(
+            (Fee.payment_date == None, 'Unpaid'),
+            (Fee.due_date < datetime.now(), 'Overdue'),
+            else_='Paid'
+        ).label('status')
+    ).outerjoin(Fee, ParkingSpace.space_number == Fee.parking_space_number).group_by(ParkingSpace.space_number, Fee.license_plate_number, Fee.amount, Fee.payment_date, Fee.due_date)
+    print(query.all())
+
+
     query = db.session.query(ParkingSpace, Fee.license_plate_number, func.count(Fee.id).label('paid')).outerjoin(
-        Fee, ParkingSpace.space_number == Fee.parking_space_number
-    )
+       Fee, ParkingSpace.space_number == Fee.parking_space_number
+       )
 
     if selected_month:
         start_date = selected_month.replace(day=1)
@@ -360,6 +377,8 @@ def parking_spaces():
 
     parking_spaces = query.group_by(
         ParkingSpace.space_number, Fee.license_plate_number).all()
+
+    print(parking_spaces)
 
     return render_template('parking_spaces.html', parking_spaces=parking_spaces, selected_month=selected_month.strftime('%Y-%m') if selected_month else None, search_query=search_query)
 
@@ -573,14 +592,14 @@ def delete_fee(fee_id):
 @login_required
 def edit_fee(fee_id):
     fee = Fee.query.get_or_404(fee_id)
-    
+
     # Ensure datetime fields are properly handled
     if isinstance(fee.payment_date, str):
         fee.payment_date = datetime.strptime(fee.payment_date, '%Y-%m-%d')
-    
+
     if isinstance(fee.due_date, str):
         fee.due_date = datetime.strptime(fee.due_date, '%Y-%m-%d')
-    
+
     form = FeeForm(obj=fee)
     form.action = 'edit'
 
@@ -601,10 +620,12 @@ def edit_fee(fee_id):
         }
 
         # 更新费用对象
-        fee.payment_date = datetime.strptime(form.payment_date.data, '%Y-%m-%d') if isinstance(form.payment_date.data, str) else form.payment_date.data
-        fee.due_date = datetime.strptime(form.due_date.data, '%Y-%m-%d') if isinstance(form.due_date.data, str) else form.due_date.data
+        fee.payment_date = datetime.strptime(form.payment_date.data, '%Y-%m-%d') if isinstance(
+            form.payment_date.data, str) else form.payment_date.data
+        fee.due_date = datetime.strptime(
+            form.due_date.data, '%Y-%m-%d') if isinstance(form.due_date.data, str) else form.due_date.data
         form.populate_obj(fee)
-        
+
         db.session.commit()
 
         # 记录编辑操作
