@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Audit Log') }}{% endblock %}
+
+{% block content %}
+<h1>{{ _('Audit Log') }}</h1>
+
+<table border="1">
+    <tr>
+        <th>{{ _('Timestamp') }}</th>
+        <th>{{ _('User ID') }}</th>
+        <th>{{ _('Action') }}</th>
+        <th>{{ _('Fee ID') }}</th>
+        <th>{{ _('Details') }}</th>
+    </tr>
+    {% for log in logs %}
+    <tr>
+        <td>{{ log.timestamp }}</td>
+        <td>{{ log.user_id }}</td>
+        <td>{{ log.action }}</td>
+        <td>{{ log.fee_id }}</td>
+        <td>{{ log.details }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="{{ url_for('index') }}">{{ _('Back to Home') }}</a>
+{% endblock %}

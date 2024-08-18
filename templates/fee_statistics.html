@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Fee Statistics') }}{% endblock %}
+
+{% block content %}
+<h1>{{ _('Fee Statistics') }}</h1>
+
+<form method="POST" action="{{ url_for('fee_statistics') }}" class="month-form">
+    <label for="month">{{ _('Select Month') }}</label>
+    <input type="month" id="month" name="month" value="{{ selected_month }}">
+    <input type="submit" value="{{ _('View Statistics') }}" class="btn btn-primary">
+</form>
+
+<h2>{{ _('Statistics by Fee Type') }}</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>{{ _('Fee Type') }}</th>
+            <th>{{ _('Total Amount') }}</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for stat in fee_type_stats %}
+        <tr>
+            <td>{{ stat.fee_type }}</td>
+            <td>{{ stat.total_amount }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<h2>{{ _('Statistics by Payment Method') }}</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>{{ _('Payment Method') }}</th>
+            <th>{{ _('Total Amount') }}</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for stat in payment_method_stats %}
+        <tr>
+            <td>{{ stat.payment_method }}</td>
+            <td>{{ stat.total_amount }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ url_for('index') }}" class="btn btn-secondary">{{ _('Back to Home') }}</a>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Add Room Number') }}{% endblock %}
+
+{% block content %}
+<h1>{{ _('Add Room Number') }}</h1>
+
+<form method="POST" action="{{ url_for('add_room') }}">
+    <label for="room_number">{{ _('Room Number') }}</label>
+    <input type="text" id="room_number" name="room_number" required><br><br>
+
+    <input type="submit" value="{{ _('Add') }}">
+</form>
+
+<a href="{{ url_for('rooms') }}">{{ _('Back to Room Numbers') }}</a>
+{% endblock %}

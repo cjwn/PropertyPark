@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Import Room Numbers') }}{% endblock %}
+
+{% block content %}
+<h1>{{ _('Import Room Numbers') }}</h1>
+
+<form method="POST" action="{{ url_for('import_rooms') }}" enctype="multipart/form-data">
+    <label for="file">{{ _('Select CSV File') }}</label>
+    <input type="file" id="file" name="file" accept=".csv" required><br><br>
+
+    <input type="submit" value="{{ _('Import') }}">
+</form>
+
+<a href="{{ url_for('rooms') }}">{{ _('Back to Room Numbers') }}</a>
+{% endblock %}

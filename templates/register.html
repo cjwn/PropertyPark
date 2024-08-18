@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<h1 class="page-title">{{ _('Register New User') }}</h1>
+
+<form method="POST" action="{{ url_for('register') }}">
+    {{ form.hidden_tag() }}
+
+    <div class="form-group">
+        <label for="username">{{ form.username.label.text }}</label>
+        {{ form.username(class="form-control") }}
+    </div>
+
+    <div class="form-group">
+        <label for="email">{{ form.email.label.text }}</label>
+        {{ form.email(class="form-control") }}
+    </div>
+
+    <div class="form-group">
+        <label for="password">{{ form.password.label.text }}</label>
+        {{ form.password(class="form-control") }}
+    </div>
+
+    <div class="form-group">
+        <label for="confirm_password">{{ form.confirm_password.label.text }}</label>
+        {{ form.confirm_password(class="form-control") }}
+    </div>
+
+    {% if form.role %}
+    <div class="form-group">
+        <label for="role">{{ form.role.label.text }}</label>
+        {{ form.role(class="form-control") }}
+    </div>
+    {% endif %}
+
+    <button type="submit" class="btn btn-primary">{{ _('Register') }}</button>
+</form>
+{% endblock %}
+
+<style>
+.page-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+</style>

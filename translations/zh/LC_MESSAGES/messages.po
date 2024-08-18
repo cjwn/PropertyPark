@@ -1,0 +1,611 @@
+# Chinese translations for PROJECT.
+# Copyright (C) 2024 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-08-11 01:16+0800\n"
+"PO-Revision-Date: 2024-08-10 03:05+0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh\n"
+"Language-Team: zh <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: app.py:85
+msgid "Logged in successfully!"
+msgstr "登录成功！"
+
+#: app.py:87
+msgid "Invalid username or password."
+msgstr "用户名或密码无效。"
+
+#: app.py:95
+msgid "You have been logged out."
+msgstr "您已退出登录。"
+
+#: app.py:223
+msgid "Fee information submitted successfully!"
+msgstr "费用信息提交成功！"
+
+#: app.py:278
+msgid "Historical fees imported successfully!"
+msgstr "历史费用信息导入成功！"
+
+#: app.py:280 app.py:400 app.py:508
+msgid "Please upload a valid CSV file!"
+msgstr "请上传有效的 CSV 文件！"
+
+#: app.py:325 templates/summary.html:8
+msgid "No fees found for the current user."
+msgstr "未找到当前用户的费用记录。"
+
+#: app.py:376
+msgid "Parking space added successfully!"
+msgstr "停车位添加成功！"
+
+#: app.py:378 app.py:482
+msgid "Parking space already exists!"
+msgstr "停车位已经存在"
+
+#: app.py:398
+msgid "Parking spaces imported successfully!"
+msgstr "停车位导入成功！"
+
+#: app.py:450
+msgid "Room number added successfully!"
+msgstr "房间号添加成功！"
+
+#: app.py:452 app.py:465
+msgid "Room number already exists!"
+msgstr "房间号已存在！"
+
+#: app.py:469
+msgid "Room number updated successfully!"
+msgstr "房间号更新成功！"
+
+#: app.py:486
+msgid "Parking space updated successfully!"
+msgstr "停车位更新成功！"
+
+#: app.py:506
+msgid "Rooms imported successfully!"
+msgstr "房间号导入成功！"
+
+#: app.py:551
+msgid "Fee record has been permanently deleted."
+msgstr "费用记录已被永久删除。"
+
+#: app.py:554
+msgid "Fee record has been marked as deleted."
+msgstr "费用记录已被标记为已删除。"
+
+#: app.py:556
+msgid "You do not have permission to delete this fee."
+msgstr "您没有权限删除此费用记录。"
+
+#: app.py:568
+msgid "Fee record deleted successfully!"
+msgstr "费用信息删除成功！"
+
+#: app.py:620
+msgid "Fee record updated successfully!"
+msgstr "费用信息提交成功！"
+
+#: app.py:740
+msgid "Rooms and Parking Spaces have been organized based on existing fees."
+msgstr "房间号和停车位已根据现有费用记录进行了整理。"
+
+#: forms.py:7 templates/manage_users.html:11
+msgid "Username"
+msgstr "用户名"
+
+#: forms.py:7 forms.py:8 forms.py:42 forms.py:43 forms.py:46 forms.py:47
+#: forms.py:48 forms.py:50 forms.py:51 forms.py:52
+msgid "This field is required."
+msgstr "此字段为必填项。"
+
+#: forms.py:8
+msgid "Password"
+msgstr "密码"
+
+#: forms.py:9 templates/login.html:3 templates/login.html:6
+#: templates/login.html:16
+msgid "Login"
+msgstr "登录"
+
+#: forms.py:42 templates/parking_space_details.html:12
+#: templates/room_details.html:12 templates/search_fees.html:37
+#: templates/summary.html:12 templates/view_fees.html:16
+msgid "Payment Date"
+msgstr "付款日期"
+
+#: forms.py:43 templates/add_room.html:9 templates/edit_room.html:9
+#: templates/parking_space_details.html:13 templates/room_details.html:6
+#: templates/rooms.html:21 templates/search_fees.html:38
+#: templates/summary.html:13 templates/view_fees.html:17
+msgid "Room Number"
+msgstr "房间号"
+
+#: forms.py:44 templates/parking_space_details.html:14
+#: templates/parking_spaces.html:22 templates/parking_usage.html:12
+#: templates/room_details.html:14 templates/search_fees.html:22
+#: templates/search_fees.html:39 templates/summary.html:14
+#: templates/view_fees.html:18
+msgid "License Plate Number"
+msgstr "车牌号"
+
+#: forms.py:45 templates/room_details.html:13 templates/search_fees.html:18
+#: templates/search_fees.html:40 templates/summary.html:15
+#: templates/view_fees.html:19
+msgid "Parking Space Number"
+msgstr "停车位号"
+
+#: forms.py:46 templates/parking_space_details.html:15
+#: templates/room_details.html:15 templates/search_fees.html:26
+#: templates/search_fees.html:41 templates/summary.html:16
+#: templates/view_fees.html:20
+msgid "Amount"
+msgstr "金额"
+
+#: forms.py:47 templates/fee_statistics.html:18
+#: templates/parking_space_details.html:16 templates/room_details.html:16
+#: templates/search_fees.html:42 templates/summary.html:17
+#: templates/view_fees.html:21
+msgid "Fee Type"
+msgstr "费用类型"
+
+#: forms.py:47 models.py:49
+msgid "Parking Fee"
+msgstr "停车费"
+
+#: forms.py:47 models.py:51
+msgid "Property Fee"
+msgstr "物业费"
+
+#: forms.py:48 templates/fee_statistics.html:36
+#: templates/parking_space_details.html:17 templates/room_details.html:17
+#: templates/search_fees.html:43 templates/summary.html:18
+#: templates/view_fees.html:22
+msgid "Payment Method"
+msgstr "付款方式"
+
+#: forms.py:48 models.py:55
+msgid "Bank"
+msgstr "银行"
+
+#: forms.py:48 models.py:57
+msgid "CITIC"
+msgstr "中信"
+
+#: forms.py:48 models.py:59
+msgid "Shouqianba"
+msgstr "收钱吧"
+
+#: forms.py:48 models.py:61
+msgid "Cash"
+msgstr "现金"
+
+#: forms.py:49 templates/parking_space_details.html:18
+#: templates/room_details.html:18 templates/search_fees.html:44
+#: templates/summary.html:19 templates/view_fees.html:23
+msgid "Due Date"
+msgstr "到期日期"
+
+#: forms.py:50 templates/parking_space_details.html:19
+#: templates/room_details.html:19 templates/search_fees.html:10
+#: templates/search_fees.html:45 templates/summary.html:20
+#: templates/view_fees.html:24
+msgid "Receipt Number"
+msgstr "收据号码"
+
+#: forms.py:51 templates/parking_space_details.html:20
+#: templates/room_details.html:20 templates/search_fees.html:14
+#: templates/search_fees.html:46 templates/summary.html:21
+#: templates/view_fees.html:25
+msgid "Name"
+msgstr "姓名"
+
+#: forms.py:52 templates/parking_space_details.html:21
+#: templates/room_details.html:21 templates/search_fees.html:47
+#: templates/summary.html:22 templates/view_fees.html:26
+msgid "Gender"
+msgstr "性别"
+
+#: forms.py:54 templates/add_fee.html:68 templates/fee_form.html:72
+msgid "Submit"
+msgstr "提交"
+
+#: templates/add_fee.html:3 templates/add_fee.html:6 templates/index.html:41
+#: templates/view_fees.html:63
+msgid "Add Fee Record"
+msgstr "添加费用记录"
+
+#: templates/add_fee.html:69 templates/audit_log.html:27
+#: templates/edit_fee.html:47 templates/fee_form.html:73
+#: templates/fee_statistics.html:50 templates/import_fees.html:15
+#: templates/search_fees.html:70
+msgid "Back to Home"
+msgstr "返回首页"
+
+#: templates/add_parking_space.html:3 templates/add_parking_space.html:6
+#: templates/parking_spaces.html:43
+msgid "Add Parking Space"
+msgstr "添加停车位"
+
+#: templates/add_parking_space.html:9 templates/edit_parking_space.html:9
+#: templates/parking_spaces.html:21 templates/parking_usage.html:11
+msgid "Space Number"
+msgstr "停车位号"
+
+#: templates/add_parking_space.html:12 templates/add_room.html:12
+msgid "Add"
+msgstr "添加"
+
+#: templates/add_parking_space.html:15 templates/edit_parking_space.html:15
+#: templates/import_parking_spaces.html:15
+#: templates/parking_space_details.html:45 templates/parking_usage_form.html:15
+msgid "Back to Parking Spaces"
+msgstr "返回停车位管理"
+
+#: templates/add_room.html:3 templates/add_room.html:6 templates/rooms.html:41
+msgid "Add Room Number"
+msgstr "添加房间号"
+
+#: templates/add_room.html:15 templates/edit_room.html:15
+#: templates/import_rooms.html:15 templates/room_details.html:45
+msgid "Back to Room Numbers"
+msgstr "返回房间号管理"
+
+#: templates/audit_log.html:3 templates/audit_log.html:6 templates/base.html:54
+msgid "Audit Log"
+msgstr "审计日志"
+
+#: templates/audit_log.html:10
+msgid "Timestamp"
+msgstr "时间戳"
+
+#: templates/audit_log.html:11
+msgid "User ID"
+msgstr "用户 ID"
+
+#: templates/audit_log.html:12
+msgid "Action"
+msgstr "操作"
+
+#: templates/audit_log.html:13
+msgid "Fee ID"
+msgstr "费用 ID"
+
+#: templates/audit_log.html:14
+msgid "Details"
+msgstr "详情"
+
+#: templates/base.html:15
+msgid "Home"
+msgstr "首页"
+
+#: templates/base.html:20 templates/index.html:3 templates/index.html:6
+msgid "Monthly Statistics"
+msgstr "每月统计"
+
+#: templates/base.html:23
+msgid "Fees"
+msgstr "费用"
+
+#: templates/base.html:25
+msgid "Add Fee"
+msgstr "添加费用"
+
+#: templates/base.html:26 templates/search_fees.html:3
+#: templates/search_fees.html:6
+msgid "Search Fees"
+msgstr "搜索费用"
+
+#: templates/base.html:27
+msgid "View Fee Records"
+msgstr "费用记录明细"
+
+#: templates/base.html:28 templates/fee_statistics.html:3
+#: templates/fee_statistics.html:6
+msgid "Fee Statistics"
+msgstr "费用统计"
+
+#: templates/base.html:29 templates/import_fees.html:3
+#: templates/import_fees.html:6
+msgid "Import Historical Fees"
+msgstr "导入历史费用"
+
+#: templates/base.html:34
+msgid "Parking"
+msgstr "停车位"
+
+#: templates/base.html:36
+msgid "Manage Parking Spaces"
+msgstr "管理停车位"
+
+#: templates/base.html:37 templates/import_parking_spaces.html:3
+#: templates/import_parking_spaces.html:6
+msgid "Import Parking Spaces"
+msgstr "导入停车位"
+
+#: templates/base.html:41
+msgid "Rooms"
+msgstr "房间"
+
+#: templates/base.html:43
+msgid "Manage Room Numbers"
+msgstr "管理房间号"
+
+#: templates/base.html:44 templates/import_rooms.html:3
+#: templates/import_rooms.html:6
+msgid "Import Room Numbers"
+msgstr "导入房间号"
+
+#: templates/base.html:48
+msgid "Manage"
+msgstr "管理"
+
+#: templates/base.html:53
+msgid "Organize Data"
+msgstr "整理数据"
+
+#: templates/edit_fee.html:3 templates/edit_fee.html:6
+msgid "Edit Fee Record"
+msgstr "编辑费用记录"
+
+#: templates/edit_fee.html:44 templates/edit_parking_space.html:12
+#: templates/edit_room.html:12
+msgid "Update"
+msgstr "更新"
+
+#: templates/edit_parking_space.html:3 templates/edit_parking_space.html:6
+msgid "Edit Parking Space"
+msgstr "编辑停车位"
+
+#: templates/edit_room.html:3 templates/edit_room.html:6
+msgid "Edit Room Number"
+msgstr "编辑房间号"
+
+#: templates/edit_user.html:6
+msgid "Edit User"
+msgstr "编辑用户"
+
+#: templates/edit_user.html:26
+msgid "Update User"
+msgstr "更新用户"
+
+#: templates/fee_statistics.html:9 templates/index.html:9
+#: templates/parking_spaces.html:10 templates/rooms.html:10
+msgid "Select Month"
+msgstr "选择月份"
+
+#: templates/fee_statistics.html:11 templates/index.html:11
+msgid "View Statistics"
+msgstr ""
+
+#: templates/fee_statistics.html:14
+msgid "Statistics by Fee Type"
+msgstr "按费用类型统计"
+
+#: templates/fee_statistics.html:19 templates/fee_statistics.html:37
+msgid "Total Amount"
+msgstr "金额"
+
+#: templates/fee_statistics.html:32
+msgid "Statistics by Payment Method"
+msgstr "按付款方式统计"
+
+#: templates/import_fees.html:9 templates/import_parking_spaces.html:9
+#: templates/import_rooms.html:9
+msgid "Select CSV File"
+msgstr "选择CSV文件"
+
+#: templates/import_fees.html:12 templates/import_parking_spaces.html:12
+#: templates/import_rooms.html:12
+msgid "Import"
+msgstr "导入"
+
+#: templates/index.html:16
+msgid "Total Property Fees Received"
+msgstr "总物业费收入"
+
+#: templates/index.html:17 templates/index.html:21
+msgid "Currency Unit"
+msgstr "货币单位"
+
+#: templates/index.html:20
+msgid "Total Parking Fees Received"
+msgstr "总停车费收入"
+
+#: templates/index.html:24
+msgid "Total Parking Spaces"
+msgstr "全部停车位"
+
+#: templates/index.html:28
+msgid "Unpaid Property Fees"
+msgstr "未缴物业费"
+
+#: templates/index.html:32
+msgid "Unpaid Parking Fees"
+msgstr "未缴停车费"
+
+#: templates/index.html:36
+msgid "Vacant Parking Spaces"
+msgstr "闲置停车位"
+
+#: templates/login.html:17 templates/register.html:38
+msgid "Register"
+msgstr "注册"
+
+#: templates/manage_users.html:6
+msgid "Manage Users"
+msgstr "管理用户"
+
+#: templates/manage_users.html:12
+msgid "Email"
+msgstr "Email"
+
+#: templates/manage_users.html:13
+msgid "Role"
+msgstr "角色"
+
+#: templates/manage_users.html:14 templates/view_fees.html:27
+msgid "Actions"
+msgstr "处理"
+
+#: templates/manage_users.html:24 templates/view_fees.html:45
+msgid "Edit"
+msgstr "编辑"
+
+#: templates/parking_space_details.html:3
+msgid "Parking Space Details"
+msgstr "停车位详情"
+
+#: templates/parking_space_details.html:6
+msgid "Parking Space"
+msgstr "停车位"
+
+#: templates/parking_space_details.html:42
+msgid "No fee records found for this parking space."
+msgstr "此停车位无缴费记录"
+
+#: templates/parking_spaces.html:3 templates/parking_spaces.html:6
+msgid "Parking Spaces"
+msgstr "停车位"
+
+#: templates/parking_spaces.html:12
+msgid "Search by Parking Space or License Plate"
+msgstr "按停车位或车牌号搜索"
+
+#: templates/parking_spaces.html:14 templates/rooms.html:14
+#: templates/search_fees.html:29 templates/view_fees.html:10
+msgid "Search"
+msgstr "搜索"
+
+#: templates/parking_spaces.html:23 templates/rooms.html:22
+msgid "Fee Paid"
+msgstr "是否在有效期内"
+
+#: templates/parking_spaces.html:30
+msgid "No Vehicle Assigned"
+msgstr "未绑定车辆"
+
+#: templates/parking_spaces.html:33 templates/rooms.html:31
+msgid "Yes"
+msgstr "是"
+
+#: templates/parking_spaces.html:35 templates/rooms.html:33
+msgid "No"
+msgstr "否"
+
+#: templates/parking_usage.html:3 templates/parking_usage.html:6
+msgid "Parking Usage on"
+msgstr "停车位使用情况"
+
+#: templates/parking_usage.html:8
+msgid "Occupied Parking Spaces"
+msgstr "已占用车位"
+
+#: templates/parking_usage.html:22
+msgid "Free Parking Spaces"
+msgstr "闲置停车位"
+
+#: templates/parking_usage.html:29
+msgid "Check Another Date"
+msgstr "检查其他日期"
+
+#: templates/parking_usage_form.html:3
+msgid "Check Parking Usage"
+msgstr "检查停车位情况"
+
+#: templates/parking_usage_form.html:6
+msgid "Check Parking Usage on Specific Date"
+msgstr "检查指定日期的停车使用情况"
+
+#: templates/parking_usage_form.html:9
+msgid "Select Date"
+msgstr "选择日期"
+
+#: templates/parking_usage_form.html:12
+msgid "Check Usage"
+msgstr "检查使用情况"
+
+#: templates/profile.html:6
+msgid "Your Profile"
+msgstr "您的个人资料"
+
+#: templates/profile.html:24
+msgid "Leave blank if you do not want to change your password"
+msgstr "如果不想更改密码，请留空"
+
+#: templates/profile.html:27
+msgid "Update Profile"
+msgstr "更新个人资料"
+
+#: templates/register.html:6
+msgid "Register New User"
+msgstr "注册新用户"
+
+#: templates/room_details.html:3
+msgid "Room Details"
+msgstr "房间号详情"
+
+#: templates/room_details.html:42
+msgid "No fee records found for this room number."
+msgstr "未找到该房间号的费用记录。"
+
+#: templates/rooms.html:3 templates/rooms.html:6
+msgid "Room Numbers"
+msgstr "房间号"
+
+#: templates/rooms.html:12
+msgid "Search by Room Number"
+msgstr "按房间号搜索"
+
+#: templates/search_fees.html:33
+msgid "Search Results"
+msgstr "搜索结果"
+
+#: templates/summary.html:3 templates/summary.html:6
+msgid "Fee Summary"
+msgstr "费用汇总"
+
+#: templates/view_fees.html:3 templates/view_fees.html:6
+msgid "Fee Records"
+msgstr "费用记录"
+
+#: templates/view_fees.html:9
+msgid "Search..."
+msgstr "搜索..."
+
+#: templates/view_fees.html:48
+msgid "Are you sure you want to delete this fee?"
+msgstr "您确定要删除此费用吗？"
+
+#: templates/view_fees.html:50
+msgid "Delete"
+msgstr "删除"
+
+#: templates/view_fees.html:52
+msgid "Mark as Deleted"
+msgstr "标记为已删除"
+
+#~ msgid "Registration successful! You can now log in."
+#~ msgstr "注册成功！您现在可以登录了。"
+
+#~ msgid "Summary"
+#~ msgstr "汇总"
+
+#~ msgid "Logout"
+#~ msgstr "退出登录"
+
+#~ msgid "Enter Fee Information"
+#~ msgstr "输入费用信息"
+

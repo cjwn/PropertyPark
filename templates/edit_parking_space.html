@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Edit Parking Space') }}{% endblock %}
+
+{% block content %}
+<h1>{{ _('Edit Parking Space') }}</h1>
+
+<form method="POST" action="{{ url_for('edit_parking_space', space_id=space.id) }}">
+    <label for="space_number">{{ _('Space Number') }}</label>
+    <input type="text" id="space_number" name="space_number" value="{{ space.space_number }}" required><br><br>
+
+    <input type="submit" value="{{ _('Update') }}">
+</form>
+
+<a href="{{ url_for('parking_spaces') }}">{{ _('Back to Parking Spaces') }}</a>
+{% endblock %}

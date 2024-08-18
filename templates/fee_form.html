@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ 'Add Fee Record' if form.action == 'add' else 'Edit Fee Record' }}
+{% endblock %}
+
+{% block content %}
+<h1 class="page-title">
+    {{ 'Add Fee Record' if form.action == 'add' else 'Edit Fee Record' }}
+</h1>
+
+<form method="POST" action="{{ url_for('add_fee') if form.action == 'add' else url_for('edit_fee', fee_id=fee.id) }}" class="fee-form" id="feeForm">
+    {{ form.hidden_tag() }}
+
+    <div class="form-group">
+        <label for="payment_date">{{ form.payment_date.label.text }}</label>
+        {{ form.payment_date(class="form-control") }}
+    </div>
+
+    <div class="form-group">
+        <label for="room_number">{{ form.room_number.label.text }}</label>
+        {{ form.room_number(class="form-control") }}
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6 parking-fields">
+            <label for="parking_space_number">{{ form.parking_space_number.label.text }}</label>
+            {{ form.parking_space_number(class="form-control") }}
+        </div>
+        <div class="form-group col-md-6 parking-fields">
+            <label for="license_plate_number">{{ form.license_plate_number.label.text }}</label>
+            {{ form.license_plate_number(class="form-control") }}
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="amount">{{ form.amount.label.text }}</label>
+            {{ form.amount(class="form-control") }}
+        </div>
+        <div class="form-group col-md-6">
+            <label for="payment_method">{{ form.payment_method.label.text }}</label>
+            {{ form.payment_method(class="form-control") }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="fee_type">{{ form.fee_type.label.text }}</label>
+        {{ form.fee_type(class="form-control") }}
+    </div>
+
+    <div class="form-group">
+        <label for="due_date">{{ form.due_date.label.text }}</label>
+        {{ form.due_date(class="form-control") }}
+    </div>
+
+    <div class="form-group">
+        <label for="receipt_number">{{ form.receipt_number.label.text }}</label>
+        {{ form.receipt_number(class="form-control") }}
+    </div>
+
+    <div class="form-group">
+        <label for="name">{{ form.name.label.text }}</label>
+        {{ form.name(class="form-control") }}
+    </div>
+
+    <div class="form-group">
+        <label for="gender">{{ form.gender.label.text }}</label>
+        {{ form.gender(class="form-control") }}
+    </div>
+
+    <button type="submit" class="btn btn-primary">{{ _('Submit') }}</button>
+    <a href="{{ url_for('index') }}" class="btn btn-secondary">{{ _('Back to Home') }}</a>
+</form>
+
+<style>
+.page-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+.fee-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-group.col-md-6 {
+    flex: 0 0 48%;
+    max-width: 48%;
+    margin-right: 4%;
+}
+
+.form-group.col-md-6:last-child {
+    margin-right: 0;
+}
+
+.parking-fields {
+    background-color: #e9ecef;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.parking-fields.highlight {
+    background-color: #d1ecf1;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    margin-left: 10px;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const feeTypeField = document.querySelector('#fee_type');
+    const parkingFields = document.querySelectorAll('.parking-fields');
+
+    function toggleHighlight() {
+        if (feeTypeField.value === 'parking fee') {
+            parkingFields.forEach(field => field.classList.add('highlight'));
+        } else {
+            parkingFields.forEach(field => field.classList.remove('highlight'));
+        }
+    }
+
+    feeTypeField.addEventListener('change', toggleHighlight);
+
+    // Initial check on page load
+    toggleHighlight();
+});
+</script>
+{% endblock %}

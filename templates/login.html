@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Login') }}{% endblock %}
+
+{% block content %}
+<h1>{{ _('Login') }}</h1>
+<form action="{{ url_for('login') }}" method="POST">
+    {{ form.hidden_tag() }}
+    
+    <label for="username">{{ form.username.label.text }}</label>
+    {{ form.username() }}<br><br>
+
+    <label for="password">{{ form.password.label.text }}</label>
+    {{ form.password() }}<br><br>
+
+    <input type="submit" value="{{ _('Login') }}">
+    <a href="{{url_for('register')}}" class="btn btn-secondary add-fee-btn">{{ _('Register') }}</a>
+</form>
+{% endblock %}

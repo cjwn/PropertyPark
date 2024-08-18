@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Search Fees') }}{% endblock %}
+
+{% block content %}
+<h1>{{ _('Search Fees') }}</h1>
+
+<form method="POST" action="{{ url_for('search_fees') }}">
+    <div class="form-group">
+        <label for="receipt_number">{{ _('Receipt Number') }}</label>
+        <input type="text" id="receipt_number" name="receipt_number" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="name">{{ _('Name') }}</label>
+        <input type="text" id="name" name="name" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="parking_space_number">{{ _('Parking Space Number') }}</label>
+        <input type="text" id="parking_space_number" name="parking_space_number" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="license_plate_number">{{ _('License Plate Number') }}</label>
+        <input type="text" id="license_plate_number" name="license_plate_number" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="amount">{{ _('Amount') }}</label>
+        <input type="number" step="0.01" id="amount" name="amount" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">{{ _('Search') }}</button>
+</form>
+
+{% if fees %}
+    <h2>{{ _('Search Results') }}</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>{{ _('Payment Date') }}</th>
+                <th>{{ _('Room Number') }}</th>
+                <th>{{ _('License Plate Number') }}</th>
+                <th>{{ _('Parking Space Number') }}</th>
+                <th>{{ _('Amount') }}</th>
+                <th>{{ _('Fee Type') }}</th>
+                <th>{{ _('Payment Method') }}</th>
+                <th>{{ _('Due Date') }}</th>
+                <th>{{ _('Receipt Number') }}</th>
+                <th>{{ _('Name') }}</th>
+                <th>{{ _('Gender') }}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fee in fees %}
+            <tr>
+                <td>{{ fee.payment_date }}</td>
+                <td>{{ fee.room_number }}</td>
+                <td>{{ fee.license_plate_number }}</td>
+                <td>{{ fee.parking_space_number }}</td>
+                <td>{{ fee.amount }}</td>
+                <td>{{ fee.get_fee_type_display() }}</td>
+                <td>{{ fee.get_payment_method_display() }}</td>
+                <td>{{ fee.due_date }}</td>
+                <td>{{ fee.receipt_number }}</td>
+                <td>{{ fee.name }}</td>
+                <td>{{ fee.gender }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+
+<a href="{{ url_for('index') }}" class="btn btn-secondary">{{ _('Back to Home') }}</a>
+{% endblock %}

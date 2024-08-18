@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Parking Space Details') }}{% endblock %}
+
+{% block content %}
+<h1>{{ _('Parking Space') }}: {{ space_number }}</h1>
+
+{% if fees %}
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>{{ _('Payment Date') }}</th>
+                <th>{{ _('Room Number') }}</th>
+                <th>{{ _('License Plate Number') }}</th>
+                <th>{{ _('Amount') }}</th>
+                <th>{{ _('Fee Type') }}</th>
+                <th>{{ _('Payment Method') }}</th>
+                <th>{{ _('Due Date') }}</th>
+                <th>{{ _('Receipt Number') }}</th>
+                <th>{{ _('Name') }}</th>
+                <th>{{ _('Gender') }}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fee in fees %}
+            <tr>
+                <td>{{ fee.payment_date }}</td>
+                <td>{{ fee.room_number }}</td>
+                <td>{{ fee.license_plate_number }}</td>
+                <td>{{ fee.amount }}</td>
+                <td>{{ fee.get_fee_type_display() }}</td>
+                <td>{{ fee.get_payment_method_display() }}</td>
+                <td>{{ fee.due_date }}</td>
+                <td>{{ fee.receipt_number }}</td>
+                <td>{{ fee.name }}</td>
+                <td>{{ fee.gender }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>{{ _('No fee records found for this parking space.') }}</p>
+{% endif %}
+
+<a href="{{ url_for('parking_spaces') }}" class="btn btn-secondary">{{ _('Back to Parking Spaces') }}</a>
+{% endblock %}

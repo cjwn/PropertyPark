@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<h1 class="page-title">{{ _('Your Profile') }}</h1>
+
+<form method="POST" action="{{ url_for('profile') }}">
+    {{ form.hidden_tag() }}
+
+    <div class="form-group">
+        <label for="username">{{ form.username.label.text }}</label>
+        {{ form.username(class="form-control") }}
+    </div>
+
+    <div class="form-group">
+        <label for="email">{{ form.email.label.text }}</label>
+        {{ form.email(class="form-control") }}
+    </div>
+
+    <div class="form-group">
+        <label for="password">{{ form.password.label.text }}</label>
+        {{ form.password(class="form-control") }}
+        <small class="form-text text-muted">{{ _('Leave blank if you do not want to change your password') }}</small>
+    </div>
+
+    <button type="submit" class="btn btn-primary">{{ _('Update Profile') }}</button>
+</form>
+{% endblock %}

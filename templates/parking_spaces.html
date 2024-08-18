@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Parking Spaces') }}{% endblock %}
+
+{% block content %}
+<h1>{{ _('Parking Spaces') }}</h1>
+
+<form method="POST" action="{{ url_for('parking_spaces') }}">
+    <div class="form-group">
+        <label for="month">{{ _('Select Month') }}</label>
+        <input type="month" id="month" name="month" class="form-control" value="{{ selected_month }}">
+        <label for="search_query" class="mt-2">{{ _('Search by Parking Space or License Plate') }}</label>
+        <input type="text" id="search_query" name="search_query" class="form-control" value="{{ search_query }}">
+        <button type="submit" class="btn btn-primary mt-2">{{ _('Search') }}</button>
+    </div>
+</form>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>{{ _('Space Number') }}</th>
+            <th>{{ _('License Plate Number') }}</th>
+            <th>{{ _('Fee Paid') }}</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for parking_space, license_plate, paid in parking_spaces %}
+        <tr>
+            <td><a href="{{ url_for('parking_space_details', space_number=parking_space.space_number) }}">{{ parking_space.space_number }}</a></td>
+            <td>{{ license_plate or _('No Vehicle Assigned') }}</td>
+            <td>
+                {% if paid > 0 %}
+                    {{ _('Yes') }}
+                {% else %}
+                    {{ _('No') }}
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ url_for('add_parking_space') }}" class="btn btn-secondary">{{ _('Add Parking Space') }}</a>
+{% endblock %}

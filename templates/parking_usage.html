@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Parking Usage on') }} {{ date }}{% endblock %}
+
+{% block content %}
+<h1>{{ _('Parking Usage on') }} {{ date }}</h1>
+
+<h2>{{ _('Occupied Parking Spaces') }}</h2>
+<table border="1">
+    <tr>
+        <th>{{ _('Space Number') }}</th>
+        <th>{{ _('License Plate Number') }}</th>
+    </tr>
+    {% for space_number, license_plate in parking_usage.items() %}
+    <tr>
+        <td>{{ space_number }}</td>
+        <td>{{ license_plate }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h2>{{ _('Free Parking Spaces') }}</h2>
+<ul>
+    {% for space in free_spaces %}
+    <li>{{ space }}</li>
+    {% endfor %}
+</ul>
+
+<a href="{{ url_for('parking_usage') }}">{{ _('Check Another Date') }}</a>
+{% endblock %}

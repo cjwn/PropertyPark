@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Check Parking Usage') }}{% endblock %}
+
+{% block content %}
+<h1>{{ _('Check Parking Usage on Specific Date') }}</h1>
+
+<form method="POST" action="{{ url_for('parking_usage') }}">
+    <label for="date">{{ _('Select Date') }}</label>
+    <input type="date" id="date" name="date" required><br><br>
+
+    <input type="submit" value="{{ _('Check Usage') }}">
+</form>
+
+<a href="{{ url_for('parking_spaces') }}">{{ _('Back to Parking Spaces') }}</a>
+{% endblock %}

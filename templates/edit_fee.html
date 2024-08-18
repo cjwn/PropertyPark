@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Edit Fee Record') }}{% endblock %}
+
+{% block content %}
+<h1>{{ _('Edit Fee Record') }}</h1>
+
+<form method="POST" action="{{ url_for('edit_fee', fee_id=fee.id) }}">
+    {{ form.hidden_tag() }}
+
+    <label for="payment_date">{{ form.payment_date.label.text }}</label>
+    {{ form.payment_date() }}<br><br>
+
+    <label for="room_number">{{ form.room_number.label.text }}</label>
+    {{ form.room_number() }}<br><br>
+
+    <label for="license_plate_number">{{ form.license_plate_number.label.text }}</label>
+    {{ form.license_plate_number() }}<br><br>
+
+    <label for="parking_space_number">{{ form.parking_space_number.label.text }}</label>
+    {{ form.parking_space_number() }}<br><br>
+
+    <label for="amount">{{ form.amount.label.text }}</label>
+    {{ form.amount() }}<br><br>
+
+    <label for="fee_type">{{ form.fee_type.label.text }}</label>
+    {{ form.fee_type() }}<br><br>
+
+    <label for="payment_method">{{ form.payment_method.label.text }}</label>
+    {{ form.payment_method() }}<br><br>
+
+    <label for="due_date">{{ form.due_date.label.text }}</label>
+    {{ form.due_date() }}<br><br>
+
+    <label for="receipt_number">{{ form.receipt_number.label.text }}</label>
+    {{ form.receipt_number() }}<br><br>
+
+    <label for="name">{{ form.name.label.text }}</label>
+    {{ form.name() }}<br><br>
+
+    <label for="gender">{{ form.gender.label.text }}</label>
+    {{ form.gender() }}<br><br>
+
+    <input type="submit" value="{{ _('Update') }}">
+</form>
+
+<a href="{{ url_for('index') }}">{{ _('Back to Home') }}</a>
+{% endblock %}

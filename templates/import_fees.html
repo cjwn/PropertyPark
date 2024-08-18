@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Import Historical Fees') }}{% endblock %}
+
+{% block content %}
+<h1>{{ _('Import Historical Fees') }}</h1>
+
+<form method="POST" action="{{ url_for('import_fees') }}" enctype="multipart/form-data">
+    <label for="file">{{ _('Select CSV File') }}</label>
+    <input type="file" id="file" name="file" accept=".csv" required><br><br>
+
+    <input type="submit" value="{{ _('Import') }}">
+</form>
+
+<a href="{{ url_for('index') }}">{{ _('Back to Home') }}</a>
+{% endblock %}
